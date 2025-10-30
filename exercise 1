@@ -1,1 +1,11 @@
+public class Main {
+    public static void main(String[] args) {
+int sum=0;
+int arrray []={2,4,6,7,9};
+for(int i=0;i<arrray.length;i++){
 
+    sum=sum+arrray[i];
+}
+        System.out.println("sum="+sum);
+    }
+}
