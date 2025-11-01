@@ -1,1 +1,30 @@
+import java.util.ArrayList;
 
+public class Main {
+    public static void main(String[] args) {
+        ArrayList<Integer> numbers = new ArrayList<>();
+        numbers.add(1);
+        numbers.add(2);
+        numbers.add(1);
+        numbers.add(3);
+        numbers.add(5);
+        numbers.add(1);
+        
+        int key = 1;
+        
+        System.out.println("Original List: " + numbers);
+        
+        removeAllOccurrences (numbers, key);
+        
+        System.out.println("After Removal: " + numbers);
+        System.out.println("Expected Output: [2, 3, 5]");
+    }
+    
+    public static void removeAllOccurrences (ArrayList<Integer> list, int key) {
+        for (int i = list.size() - 1; i >= 0; i--) {
+            if (list.get(i) == key) {
+                list.remove(i);
+            }
+        }
+    }
+}
