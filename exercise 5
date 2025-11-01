@@ -1,33 +1,39 @@
 
 
 import java.util.ArrayList;
+import java.util.Scanner;
 
-        public class Main {
-            public static ArrayList<Integer> removeDuplicates(ArrayList<Integer> inputList) {
-                ArrayList<Integer> resultList = new ArrayList<>();
+public class UniqueElements {
+    public static ArrayList<Integer> removeDuplicates(ArrayList<Integer> inputList) {
+        ArrayList<Integer> resultList = new ArrayList<>();
 
-                for (Integer number : inputList) {
-                    if (!resultList.contains(number)) {
-                        resultList.add(number);
-                    }
-                }
-
-                return resultList;
-            }
-
-            public static void main(String[] args) {
-                // Test scenario: [1, 2, 2, 3, 3, 4, 5]
-                ArrayList<Integer> input = new ArrayList<>();
-                input.add(1);
-                input.add(2);
-                input.add(2);
-                input.add(3);
-                input.add(3);
-                input.add(4);
-                input.add(5);
-
-                ArrayList<Integer> output = removeDuplicates(input);
-
-                System.out.println("Output: " + output);
+        for (Integer number : inputList) {
+            if (!resultList.contains(number)) {
+                resultList.add(number);
             }
         }
+
+        return resultList;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        ArrayList<Integer> input = new ArrayList<>();
+
+        System.out.println("Enter numbers separated by spaces:");
+        String line = scanner.nextLine(); 
+        String[] parts = line.split(" "); 
+        for (String part : parts) {
+            try {
+                int number = Integer.parseInt(part);
+                input.add(number);
+            } catch (NumberFormatException e) {
+                System.out.println("Invalid input: " + part + " is not a number.");
+            }
+        }
+
+        ArrayList<Integer> output = removeDuplicates(input);
+
+        System.out.println("Output without duplicates: " + output);
+    }
+}
